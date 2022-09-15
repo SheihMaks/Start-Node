@@ -1,0 +1,25 @@
+{
+  "name": "Start-Node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "start:dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SheihMaks/Start-Node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SheihMaks/Start-Node/issues"
+  },
+  "homepage": "https://github.com/SheihMaks/Start-Node#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
