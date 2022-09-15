@@ -1,13 +1,27 @@
 // const path=require('path')
-// const contactsPath1=path.join(__dirname,"./contacts")
-const contacts=require("./contacts")
-// console.log(contactsPath1)
+// const contacts=path.join(__dirname,"contacts.js")
 
+const contacts=require("./contacts")
+// console.log(contacts)
 // const fs=require("fs/promises")
 // const {listContacts}=require("./contacts")
-const invoke=async()=>{
+const invokeAction=async({action,contactId})=>{
+    switch(action) {
+        case "listContacts":
 const allContacts=await contacts.listContacts()
 console.log(allContacts)
+break
+case "getContactById":
+    const contact=await contacts.getContactById(contactId)
+    console.log(contact)
+    break
+case "removeContact":
+    const newContacts=await contacts.removeContact(contactId)
+    console.log(newContacts)
+    break
+default:console.log("Uknown action")
+}
 }
 
-invoke()
+// invokeAction({action:"listContacts"})
+// invokeAction({action:"removeContact",contactId:"5"})
