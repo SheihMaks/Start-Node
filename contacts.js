@@ -1,6 +1,11 @@
 const fs=require("fs/promises")
 const path=require("path")
+const {program}=require("commander")
 const contactsPath=path.join(__dirname,"db/contacts.json")
+program
+.option('--listContacts <type>')
+
+
 // console.log(contactsPath)
 
 const listContacts=async()=>{
@@ -22,7 +27,7 @@ const removeContact=async(contactId)=>{
         return null
     }
     const [result]=data.splice(index,1)
-    await fs.writeFile(contactsPath,JSON.stringify(data,null,2),"utf-8")
+    await fs.writeFile(contactsPath,JSON.stringify(data,null,2))
     return result
 }
 

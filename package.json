@@ -21,5 +21,8 @@
   "homepage": "https://github.com/SheihMaks/Start-Node#readme",
   "devDependencies": {
     "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "commander": "^9.4.0"
   }
 }

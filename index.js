@@ -18,7 +18,6 @@ case "getContactById":
 case "removeContact":
     const newContacts=await contacts.removeContact(contactId)
     console.log(newContacts)
-    return newContacts
     break
 default:console.log("Uknown action")
 }
