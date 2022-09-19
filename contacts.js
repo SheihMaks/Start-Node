@@ -1,9 +1,8 @@
 const fs=require("fs/promises")
 const path=require("path")
-const {program}=require("commander")
+
 const contactsPath=path.join(__dirname,"db/contacts.json")
-program
-.option('--listContacts <type>')
+
 
 
 // console.log(contactsPath)
@@ -13,16 +12,16 @@ const listContacts=async()=>{
 return JSON.parse(data)
 }
 
-const getContactById = async(contactId)=>{
+const getContactById = async(id)=>{
     const data=await listContacts()
-    const result=data.find(item=> item.id===contactId)
+    const result=data.find(item=> item.id===id)
     return result || null
 }
 
-const removeContact=async(contactId)=>{
+const removeContact=async(id)=>{
     const data=await listContacts()
     // console.log(data)
-    const index=await data.findIndex(item=>item.id === contactId)
+    const index=await data.findIndex(item=>item.id === id)
     if(index===-1){
         return null
     }

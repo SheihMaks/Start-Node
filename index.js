@@ -1,27 +1,32 @@
 // const path=require('path')
 // const contacts=path.join(__dirname,"contacts.js")
-
+const {program}=require("commander")
 const contacts=require("./contacts")
-// console.log(contacts)
-// const fs=require("fs/promises")
-// const {listContacts}=require("./contacts")
-const invokeAction=async({action,contactId})=>{
+
+const invokeAction=async({action,id})=>{
     switch(action) {
-        case "listContacts":
+        case "getContacts":
 const allContacts=await contacts.listContacts()
 console.log(allContacts)
 break
 case "getContactById":
-    const contact=await contacts.getContactById(contactId)
+    const contact=await contacts.getContactById(id)
     console.log(contact)
     break
 case "removeContact":
-    const newContacts=await contacts.removeContact(contactId)
+    const newContacts=await contacts.removeContact(id)
     console.log(newContacts)
     break
 default:console.log("Uknown action")
 }
 }
 
-// invokeAction({action:"listContacts"})
-// invokeAction({action:"removeContact",contactId:"5"})
+program
+.option("-a, --action <type>")
+.option("-i,--id <type>")
+
+program.parse(process.argv)
+
+const options=program.opts()
+console.log(options)
+invokeAction(options)
