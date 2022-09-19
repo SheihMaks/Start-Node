@@ -3,13 +3,9 @@ const path=require("path")
 
 const contactsPath=path.join(__dirname,"db/contacts.json")
 
-
-
-// console.log(contactsPath)
-
 const listContacts=async()=>{
     const data=await fs.readFile(contactsPath, "utf-8");
-return JSON.parse(data)
+    return JSON.parse(data)
 }
 
 const getContactById = async(id)=>{
@@ -20,7 +16,6 @@ const getContactById = async(id)=>{
 
 const removeContact=async(id)=>{
     const data=await listContacts()
-    // console.log(data)
     const index=await data.findIndex(item=>item.id === id)
     if(index===-1){
         return null

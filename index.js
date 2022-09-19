@@ -1,5 +1,3 @@
-// const path=require('path')
-// const contacts=path.join(__dirname,"contacts.js")
 const {program}=require("commander")
 const contacts=require("./contacts")
 
