@@ -1,38 +1,37 @@
-
 const {program}=require("commander")
 const contacts=require("./contacts")
-// const {nanoid}=require("nanoid")
 
-const invokeAction=async({action,id})=>{
+const invokeAction=async({action,id,name,email,phone})=>{
     switch(action) {
-        case "getContacts":
+        case "list":
 const allContacts=await contacts.listContacts()
 console.log(allContacts)
 break
-case "getContactById":
+case "get":
     const contact=await contacts.getContactById(id)
     console.log(contact)
     break
-    case "addContact":
-        const updatedContacts=await contacts.addContact({contactName,number})
+    case "add":
+        const updatedContacts=await contacts.addContact({name,email,phone})
         console.log(updatedContacts)
         break
-case "removeContact":
+case "remove":
     const newContacts=await contacts.removeContact(id)
     console.log(newContacts)
     break
-default:console.log("Uknown action")
+default:console.warn("\x1B[31m Unknown action type!");
 }
 }
 
 program
 .option("-a, --action <type>")
 .option("-i,--id <type>")
-.option("-n,--contactName <type>")
-.option("-num,--number <type>")
+.option("-n,--name <type>")
+.option("-e, email <type>")
+.option("-p,--phone <type>")
 
 program.parse(process.argv)
 
 const options=program.opts()
-console.log(options)
+// console.log(options)
 invokeAction(options)
