@@ -1,6 +1,7 @@
 
 const {program}=require("commander")
 const contacts=require("./contacts")
+// const {nanoid}=require("nanoid")
 
 const invokeAction=async({action,id})=>{
     switch(action) {
@@ -12,6 +13,10 @@ case "getContactById":
     const contact=await contacts.getContactById(id)
     console.log(contact)
     break
+    case "addContact":
+        const updatedContacts=await contacts.addContact({contactName,number})
+        console.log(updatedContacts)
+        break
 case "removeContact":
     const newContacts=await contacts.removeContact(id)
     console.log(newContacts)
@@ -23,6 +28,8 @@ default:console.log("Uknown action")
 program
 .option("-a, --action <type>")
 .option("-i,--id <type>")
+.option("-n,--contactName <type>")
+.option("-num,--number <type>")
 
 program.parse(process.argv)
 
