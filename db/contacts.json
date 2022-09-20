@@ -30,12 +30,6 @@
     "phone": "(186) 568-3720"
   },
   {
-    "id": "7",
-    "name": "Reuben Henry",
-    "email": "pharetra.ut@dictum.co.uk",
-    "phone": "(715) 598-5792"
-  },
-  {
     "id": "8",
     "name": "Simon Morton",
     "email": "dui.Fusce.diam@Donec.com",
@@ -75,5 +69,11 @@
     "name": "maks",
     "email": "hfdsdf",
     "phone": "79898798798798"
+  },
+  {
+    "id": "hbdnqXvTw7B3fRXf9xf1X",
+    "name": "Maks",
+    "email": "maks@com.ua",
+    "phone": "234-07-45"
   }
 ]
